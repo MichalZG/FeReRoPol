@@ -52,14 +52,10 @@ python run_savart_phot.py <path_to_config_file> <path_to_stack_output> <path_to_
 Important note:  
 photometry need coordinate file of stars, where y1 > y2 !  
 ```
-P1 x1 y1 x2 y2  - Star coordinates from reference P1 savart image
-P3 x1 y1 x2 y2  - Star coordinates from reference P3 savart image
-```
-example:  
-```
-P1 544 256 450 245  
-P3 566 354 477 344  
-```
+0.0 x1 y1 x2 y2  - Star coordinates from reference 0 deg image
+22.5 x1 y1 x2 y2  - Star coordinates from reference 22.5 deg image
+45.0 ....
+
 
 
 
