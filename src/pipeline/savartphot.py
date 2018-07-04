@@ -36,6 +36,8 @@ class Savartphot(PipelineBase):
             ('hwp_to_process', str),
             ('results_file_name', str),
             ('results_file_ext', str),
+            ('measurements_file_name', str),
+            ('measurements_file_ext', str),
             ('pd_file_name', str),
             ('pa_file_name', str),
             ('pattern', str),
@@ -501,14 +503,20 @@ class Savartphot(PipelineBase):
             # spark axon
             output_table.append([v[idx].jd] + [v for v in spark.values()])
 
-        output_header = 'JD,' + ','.join([k for k in spark.keys()])
-
+        results_header = 'JD,' + ','.join([k for k in spark.keys()])
+        measurements_header = 'phi,i,i_err'
         
 
         np.savetxt(os.path.join(self.output_directory,
             self.config_section.get('results_file_name')+
             self.config_section.get('results_file_ext')),
             np.array(output_table),
+            delimiter=',', header=results_header, comments='')
+
+        np.savetxt(os.path.join(self.output_directory,
+            self.config_section.get('measurements_file_name')+
+            self.config_section.get('measurements_file_ext')),
+            np.dstack((phi_tab, i_tab, i_err_tab)),
             delimiter=',', header=output_header, comments='')
 
         if self.config_section.get('plot_polarimetry'):
