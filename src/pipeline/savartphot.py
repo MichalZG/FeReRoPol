@@ -513,11 +513,13 @@ class Savartphot(PipelineBase):
             np.array(output_table),
             delimiter=',', header=results_header, comments='')
 
+        print(len(phi_tab), len(i_tab), len(i_err_tab))
+        print(phi_tab, i_tab, i_err_tab)
         np.savetxt(os.path.join(self.output_directory,
             self.config_section.get('measurements_file_name')+
             self.config_section.get('measurements_file_ext')),
             np.dstack((phi_tab, i_tab, i_err_tab)),
-            delimiter=',', header=output_header, comments='')
+            delimiter=',', header=measurements_header, comments='')
 
         if self.config_section.get('plot_polarimetry'):
             self._make_polarimetry_plot(np.array(output_table))
