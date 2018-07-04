@@ -78,7 +78,7 @@ class Savartphot(PipelineBase):
         if not self.config_section:
             raise ValueError('Configuration file is not correct.')
 
-        self.savarts_to_process = self.config_section.get('savarts_to_process').split(',')
+        self.savarts_to_process = self.config_section.get('hwp_to_process').split(',')
         self.coordinates_file = coordinates_file
         self.work_path = work_path
         self.stars_coordinates = self._load_stars_coordinates()
