@@ -22,7 +22,7 @@ class Image:
 	def _find_filter(self, filter_name):
 
 		if not any(str(f) in filter_name for f in ['0.0', '22.5', '45.0', '67.5']):
-			raise ValueError('Savart name in filter key has not been found')
+			raise ValueError('hwp angle in filter key has not been found')
 		savart, filter_color = filter_name.split('-')
 
 		# if savart in ['22', '67']:
