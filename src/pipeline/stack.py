@@ -14,7 +14,7 @@ class Stack(PipelineBase):
 	def __init__(self, config, work_path, stack_size, output_directory, log_file_name='stack'):
 		super(Stack, self).__init__(log_file_name, output_directory, None)
 		self.config = Configuration(config, [
-			('savarts_to_process', str),
+			('hwp_to_process', str),
 			('pattern', str),
 			('datetime_key', str),
 			('jd_key', str),
@@ -187,12 +187,12 @@ class Stack(PipelineBase):
 
 	def process(self):
 
-		if not self.config_section.get('savarts_to_process'):
+		if not self.config_section.get('hwp_to_process'):
 			self.error('No savarts to stack in configuration file')
 			raise ValueError('No savarts to stack')
 
 		stack_lists = self._create_stack_lists(
-			self.config_section.get('savarts_to_process').split(','))
+			self.config_section.get('hwp_to_process').split(','))
 
 		for savart_name, stack_list in stack_lists.items():
 			for i, chunk in enumerate(stack_list):
