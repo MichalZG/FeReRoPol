@@ -25,8 +25,6 @@ class Image:
 			raise ValueError('hwp angle in filter key has not been found')
 		savart, filter_color = filter_name.split('-')
 
-		# if savart in ['22', '67']:
-		# 	savart = str(float(savart)+0.5)
 		return str(float(savart)), filter_color
 
 	def _find_hdr_fields(self, datetime_key, jd_key, filter_key, object_key):
@@ -62,8 +60,9 @@ class Coordinate:
 
 
 class SavartCounts:
-	def __init__(self, name, jd, counts_tab, counts_error_tab):
+	def __init__(self, name, angle, jd, counts_tab, counts_error_tab):
 		self.name = name
+		self.angle = angle
 		self.jd = jd
 		self.counts1 = counts_tab[0]
 		self.error1 = counts_error_tab[0]
