@@ -33,7 +33,7 @@ class Savartphot(PipelineBase):
      log_file_name='savar_phot'):
         super(Savartphot, self).__init__(log_file_name, output_directory, None)
         self.config = Configuration(config, [
-            ('savarts_to_process', str),
+            ('hwp_angle_to_process', str),
             ('results_file_name', str),
             ('results_file_ext', str),
             ('pd_file_name', str),
@@ -79,7 +79,7 @@ class Savartphot(PipelineBase):
         if not self.config_section:
             raise ValueError('Configuration file is not correct.')
 
-        self.savarts_to_process = self.config_section.get('savarts_to_process').split(',')
+        self.hwp_angle_to_process = self.config_section.get('hwp_angle_to_process').split(',')
         self.coordinates_file = coordinates_file
         self.work_path = work_path
         self.stars_coordinates = self._load_stars_coordinates()
@@ -440,10 +440,10 @@ class Savartphot(PipelineBase):
 
     # def _create_savarts_tables(self):
     #     savart1_tab = list(filter(
-    #         lambda savart: savart.name==self.savarts_to_process[0],
+    #         lambda savart: savart.name==self.hwp_angle_to_process[0],
     #      self.measurements))
     #     savart2_tab = list(filter(
-    #         lambda savart: savart.name==self.savarts_to_process[1],
+    #         lambda savart: savart.name==self.hwp_angle_to_process[1],
     #      self.measurements))
 
     #     return savart1_tab, savart2_tab
@@ -451,13 +451,13 @@ class Savartphot(PipelineBase):
 
     # def _create_savarts_tables(self):
 
-    #     for savart in self.savarts_to_process:
+    #     for savart in self.hwp_angle_to_process:
     #         pass
     #     savart1_tab = list(filter(
-    #         lambda savart: savart.name==self.savarts_to_process[0],
+    #         lambda savart: savart.name==self.hwp_angle_to_process[0],
     #      self.measurements))
     #     savart2_tab = list(filter(
-    #         lambda savart: savart.name==self.savarts_to_process[1],
+    #         lambda savart: savart.name==self.hwp_angle_to_process[1],
     #      self.measurements))
 
     #     return savart1_tab, savart2_tab
