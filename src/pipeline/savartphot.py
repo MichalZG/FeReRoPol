@@ -499,7 +499,10 @@ class Savartphot(PipelineBase):
                 i_tab.append(v[idx].counts2)
                 i_err_tab.append(v[idx].error1)
                 i_err_tab.append(v[idx].error2)
-            spark = get_stokes(i=i_tab, sigmas=i_err_tab, phi=phi_tab)
+            spark = get_stokes(i=i_tab, sigmas=i_err_tab,
+                t=[1.0]*len(phi_tab), e=[1.0]*len(phi_tab),
+                phi=phi_tab)
+            
             # spark axon
             output_table.append([v[idx].jd] + [v for v in spark.values()])
 
