@@ -21,7 +21,8 @@ class Image:
 
 	def _find_filter(self, filter_name):
 
-		if not any(str(f) in filter_name for f in ['0.0', '22.5', '45.0', '67.5']):
+		if not any(str(f) in filter_name for f in ['0.0', '22.5', '45.0',
+			'67.5']):
 			raise ValueError('hwp angle in filter key has not been found')
 		savart, filter_color = filter_name.split('-')
 
@@ -62,7 +63,6 @@ class Coordinate:
 class SavartCounts:
 	def __init__(self, name, jd, counts_tab, counts_error_tab):
 		self.name = name
-		self.angle = angle
 		self.jd = jd
 		self.counts1 = counts_tab[0]
 		self.error1 = counts_error_tab[0]
