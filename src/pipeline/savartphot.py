@@ -16,6 +16,7 @@ from astropy.io import fits
 from astropy.convolution import Gaussian2DKernel
 from collections import namedtuple, OrderedDict
 from photutils import source_properties, properties_table
+from photutils import CircularAperture, EllipticalAperture
 from photutils import (CircularAnnulus, EllipticalAnnulus,
                        detect_sources, aperture_photometry)
 from astropy.utils.exceptions import AstropyWarning
