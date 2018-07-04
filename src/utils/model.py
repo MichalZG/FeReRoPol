@@ -60,7 +60,7 @@ class Coordinate:
 
 
 class SavartCounts:
-	def __init__(self, name, angle, jd, counts_tab, counts_error_tab):
+	def __init__(self, name, jd, counts_tab, counts_error_tab):
 		self.name = name
 		self.angle = angle
 		self.jd = jd
