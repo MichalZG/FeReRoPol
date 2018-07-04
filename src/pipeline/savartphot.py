@@ -501,7 +501,7 @@ class Savartphot(PipelineBase):
             # spark axon
             output_table.append([v[idx].jd] + [v for v in spark.values()])
 
-        output_header = 'JD' + ' '.join([k for k in spark.keys()])
+        output_header = 'JD,' + ','.join([k for k in spark.keys()])
 
         
 
