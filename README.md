@@ -1,6 +1,6 @@
 # savartPhot
 
-Software for data analysis of Suhora Telescope with Savart Plates polarimetry system
+Software for analysis data from Suhora Telescope with Savart Plates polarimetry system
 
 ## Prerequisites
 
