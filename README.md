@@ -1,6 +1,6 @@
 # savartPhot
 
-Software for analysis data from Suhora Telescope with Savart Plates polarimetry system
+Software for analysis data from RTT150 Telescope with TFOSC polarimeter.
 
 ## Prerequisites
 
@@ -10,7 +10,7 @@ Software for analysis data from Suhora Telescope with Savart Plates polarimetry 
 ## Installation
 ### 1. Clone this respository
 ```
-git clone https://github.com/MichalZG/savartPhot.git
+git clone https://github.com/MichalZG/FeReRoPol.git
 ```
 ### 2. Create anaconda environment
 ```
